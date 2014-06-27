@@ -11,7 +11,7 @@
     </head>
     <body ng-controller="MainCtrl">
     	<div class="container slider">
-    		<img ng-repeat="slide in slides" ng-src="{{slide.image}}" ng-hide="!isCurrentSlideIndex($index)" class="slide">
+    		<img ng-repeat="slide in slides" ng-src="{{slide.image}}" ng-hide="!isCurrentSlideIndex($index)" class="slide slide-animation">
     		<a href="#" class="arrow prev" ng-click="nextSlide()"></a>
     		<a href="#" class="arrow next" ng-click="prevSlide()"></a>
     		<div class="nav">
