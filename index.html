@@ -1,16 +1,26 @@
 <!doctype html>
-<html>
+<html ng-app="slider">
     <head>
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Untitled</title>
-        <link rel="stylesheet" href="css/style.css">
+        <title>Angular Slider</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="author" href="humans.txt">
     </head>
     <body ng-controller="MainCtrl">
     	<div class="container slider">
-    		<img ng-src="{{slide.image}}" ng-repeat="slide in slides" class="slide">
+    		<img ng-repeat="slide in slides" ng-src="{{slide.image}}" ng-hide="!isCurrentSlideIndex($index)" class="slide">
+    		<div class="nav">
+    			<div class="wrapper">
+    				<ul class="dots">
+    					<li class="dot" ng-repeat="slide in slides">
+    						<a href="#" ng-class="{'active': isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
+    					</li>
+    				</ul>
+    			</div>
+    		</div>
     	</div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
